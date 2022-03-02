@@ -1,0 +1,95 @@
+{% load static %}
+
+
+<div class="blog_detay_header">
+    <h1 class="kategori_detay_header">{{blog.title}}</h1>
+</div>
+<div class="blog_detay_img_container my-3">
+    <img class="img-fluid" src="{{blog.image.url}}" alt="">
+</div>
+
+<div class="blog_detay_info_container d-flex flex-wrap">
+    <div class="blog_info_katageori me-3">
+        <a href="">
+            {{blog.blogun_kategorisi.name}}
+        </a>
+    </div>
+    <div class="d-flex flex-row blog_detay_bilgi_mobil ">
+        <div class="blog_detay_time">
+            <span>{{blog.yayimlanma_tarihi}}</span>
+        </div>
+        <div class="blog_like_container">
+            <div class="like mx-3">
+                <a href="#">
+                    <i class="fa-solid fa-angle-up"></i>
+                </a>
+                <span class="ms-2">32</span>
+            </div>
+            <div class="dislike">
+                <a href="#">
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+                <span class="ms-2">32</span>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="okuma_zamani ms-3 mt-3 ">
+    <span class="text-muted"> Tahmini okuma süresi : <b>1.23</b></span>
+</div>
+<div class="blog_detay_content p-2">
+    {{blog.description|safe}}
+</div>
+<div class="kaynak my-4  p-5">
+    <h2 class="mb-4">KAYNAK</h2>
+    {{blog.kaynakca|safe}}
+</div>
+
+<div class="author_information_container">
+
+    <div class="author_information_content col-9 p-3">
+        <div class="author_information">
+            <span>YAZAR BİLGİLERİ</span>
+        </div>
+        <div class="author_information_text my-2 ms-3  w-75">
+            <p>{{blog.blogun_yazari.yazar_aciklama|safe}}</p>
+        </div>
+        <div class="author_position align-self-end">
+            <div class="author_name me-2">
+                <span> <strong> {{blog.blogun_yazari.yazar_adi.get_full_name|title}}</strong></span>
+            </div>
+            <span class="text-muted"> {{blog.blogun_yazari.yazar_pozisyonu}}</span>
+        </div>
+
+        <div class="author_social mt-3 align-self-center">
+            <div class="social ">
+                <a href="{{blog.blogun_yazari.facebook_adresi}}">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+            </div>
+            <div class="social ">
+                <a href="{{blog.blogun_yazari.twitter_adresi}}">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+
+            <div class="social ">
+                <a href="{{blog.blogun_yazari.instagram_adresi}}">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <div class="social">
+                <a href="{{blog.blogun_yazari.youtube_adresi}}">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="author_img_container col-3">
+        <img class="img-fluid" src="{{blog.blogun_yazari.yazar_resim.url}}" alt="">
+    </div>
+</div>

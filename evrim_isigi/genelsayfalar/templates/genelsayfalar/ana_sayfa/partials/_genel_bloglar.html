@@ -1,0 +1,69 @@
+{% load static %}
+
+<!-- --------------------------------------------------------------------------------- -->
+
+
+
+<div class="row mb-4 blog_container p-1 w-100">
+    <div class="col-sm-4 col-12">
+        <div class="blog_img-container p-2 me-2">
+            <img class="img-fluid" src="{{genel_bloglar.image.url}}" alt="">
+        </div>
+    </div>
+    <div class=" col-sm-8 col-12  p-1">
+        <div class="blog-content-container">
+            <div class="blog_info">
+                <div class="blog_info_kategori">
+                    <a class="" href="#">bilim</a>
+                </div>
+                <div>
+                    <span>{{genel_bloglar.yayimlanma_tarihi}}</span>
+                </div>
+            </div>
+
+            <div class="blog-header mt-3">
+                <a class="blog_header_baslik" href=" {% url 'detay' genel_bloglar.slug %} ">{{genel_bloglar.title}}</a>
+            </div>
+
+            <div class="blog_text mt-2 ps-2">
+                <span>
+                    {{genel_bloglar.description|safe}}
+                </span>
+            </div>
+            <div class="okuma_zamanı mt-2">
+                <span class="ms-2">Tahmini okuma süresi : <b>1.5dk</b> </span>
+            </div>
+            <div class="row d-flex justify-content-md-start align-items-center justify-content-around ">
+                <div class=" col-md-4 col-12  ">
+                    <div class=" blog_like_container  pt-2">
+                        <div class="  blog_like  me-3">
+                            <a href="#">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <span class="ms-2">32</span>
+                        </div>
+                        <div class="blog_dislike">
+                            <a href="#">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <span class="ms-2">32</span>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-8 me-auto col-12 author_container  p-2 pe-4">
+                    <div class="author_image_container mt-2">
+                        <img src=" {{genel_bloglar.blogun_yazari.yazar_resim.url}} " alt="">
+                    </div>
+                    <div class="author_content-container mt-sm-3 ms-3">
+                        <span> {{genel_bloglar.blogun_yazari.yazar_adi.get_full_name|title}}</span>
+                        <span class="text-muted ms-1"> {{genel_bloglar.blogun_yazari.yazar_pozisyonu|upper}}</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- --------------------------------------------------------------------------------- -->

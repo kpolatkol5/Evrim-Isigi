@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css_files %}
+{% comment %} 
+
+   +  fazla css yazmamak için ve tasarım aynı olduğu için  anasayfa.css i çağırdım 
+
+       position: relative;
+    top: 150px;
+
+
+
+{% endcomment %}
+
+<link rel="stylesheet" href=" {% static 'genelsayfalar/css/anasayfa.css' %} ">
+<link rel="stylesheet" href=" {% static 'genelsayfalar/css/kategori_detay.css' %} ">
+
+{% endblock css_files %}
+
+
+{% block content %}
+
+
+<!--  *content Kısmı Başladı* -->
+
+
+<div class="kategori_detay_container container-fluid my-5">
+    <div class="col-10 mx-auto">
+        <div class="row justify-content-between">
+            <div class="p-2 col-xl-8  ">
+                {% for bloglar in blog  %}
+                
+                    {% include "genelsayfalar/kategori_sayfalari/partials/_kategori_blog.html" %}
+                
+                {% endfor %}
+
+            </div>
+
+            <div class="genel_navigation_none p-2 col-4 ">
+                {% include "genelsayfalar/kategori_sayfalari/partials/_kategori_navigation.html" %}
+
+            </div> 
+            
+            
+
+        </div>
+       
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+{% block js_files %}
+<script src=" {% static 'genelsayfalar/js/kategori_detay.js' %} "></script>
+{% endblock js_files %}

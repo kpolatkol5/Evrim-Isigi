@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+
+<link rel="stylesheet" href=" {% static 'genelsayfalar/css/anasayfa.css' %} ">
+
+{% endblock css_files %}
+
+
+{% block content %}
+
+{% include 'genelsayfalar/ana_sayfa/partials/_manset.html' %}
+
+<!--  *content Kısmı Başladı* -->
+
+
+<div class="container-fluid my-5">
+    <div class="col-10 mx-auto">
+        <div class="row justify-content-between">
+            <div class="p-2 col-xl-8  ">
+                {% for genel_bloglar in blogs  %}
+                    {% include 'genelsayfalar/ana_sayfa/partials/_genel_bloglar.html' %}
+                {% endfor %}      
+            </div>
+            <div class="genel_navigation_none p-2 col-4 ">
+                {% include 'genelsayfalar/ana_sayfa/partials/_genel_navigation.html' %}
+            </div>
+        </div>
+        <div class="row flex-column my-5">
+            {% include 'genelsayfalar/ana_sayfa/partials/_youtube.html' %}
+        </div>
+        {% include 'genelsayfalar/ana_sayfa/partials/_bilim_dunyasi.html' %}
+
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+{% block js_files %}
+<script src=" {% static 'genelsayfalar/js/genel_sayfalar.js' %} "></script>
+{% endblock js_files %}

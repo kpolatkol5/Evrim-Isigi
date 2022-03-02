@@ -1,0 +1,33 @@
+{% load static %}
+
+<!-- *manset kısmı basladı* -->
+
+<div class="manset">
+    <div class="backround_img">
+        <div class="backround_img_filter"></div>
+        <img class="img-fluid" src="{{manset.image.url}} " alt="">
+    </div>
+    <div style="position: relative; z-index:2;" class="container d-flex align-items-end h-100">
+        <div class="manset_content mb-5">
+            <a class="display-6"  href="{% url 'detay' manset.slug %}" >
+                    {{manset.title|title}}
+            </a>
+            <div class="manset_info mt-3">
+                <div class="manset_info_kategori">
+                    <a href="#">bilim</a>
+                </div>
+                <div>
+                    <span>{{manset.yayimlanma_tarihi}}</span>
+                    <span>1.15 dk</span>
+                </div>
+            </div>
+            <div class="manset-text my-3 ">
+                <p>
+                    {{manset.description|safe}}    
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- !manset kısmı bitti! -->

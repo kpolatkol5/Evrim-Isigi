@@ -1,0 +1,52 @@
+{% load static %}
+
+
+<div id="navbar_select" class="navigation  ">
+    <div class="row justify-content-center align-itemc-center">
+
+        <div class="navigation_search  mt-4">
+            <form class="d-flex align-itemc-center justify-content-center" action="#">
+                <div class="search_input  row   p-0">
+                    <div class="col-10 m-0">
+                        <input type="text" placeholder="ARA">
+                    </div>
+                    <div class="col-2 m-0">
+                        <button class="search_btn "><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+            </form>
+            <h2 class=" my-4 ">
+                EN ÇOK OKUNAN MAKALELER
+            </h2>
+            <div class="col-10 mb-2">
+                <hr>
+            </div>
+        </div>
+        {% for nav_blogs in nav_blogs  %}
+        <!-- -------------------------------------------------------------------------- -->
+            <div class="col-11 mb-3 p-0 navigation_container  ">
+                <div class="row py-1 px-2 d-flex align-items-center justify-content-center p-0">
+                    <div class=" col-3 navigation_container_none  ">
+                        <div class="navigation_image_container">
+                            <img src="{{nav_blogs.image.url}}" alt="">
+                        </div>
+                    </div>
+                    <div class=" col-9 navigation_content_container ">
+                        <a  href="">
+                            {{nav_blogs.title}}
+                        </a>
+                        <a></a>
+                        <span class=text-muted>Tahmini okuma süresi : <b>1.12dk</b> </span>
+                        <div class="navigation_content_kategori_info ">
+                            <div>
+                                <a href="#">Bilim</a>
+                            </div>
+                            <span class="ms-2 ps-2">{{nav_blogs.yayimlanma_tarihi}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------------------- -->
+        {% endfor %}
+    </div>
+</div>

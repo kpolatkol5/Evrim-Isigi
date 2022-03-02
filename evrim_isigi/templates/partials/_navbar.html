@@ -1,0 +1,76 @@
+{% load static %}
+
+
+<div class="container-fluid mt-4  fixed-top">
+
+  <div class="row   ">
+    <div class="col-10 bg-dark mx-auto">
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+
+        <div class="container menu_items_container  ">
+          <a class="navbar-brand" href="{% url 'anasayfa' %}">EVRİM<b>IŞIĞI</b></a>
+
+          <div class="menu_items w-75">
+            <ul id="navbar_item" class="navbar-nav nav_menu mb-2 mb-lg-0">
+
+              {% for kategori in kategori  %}
+                    {% comment %} <li class="nav-item">
+                      <a class="nav_link_active" aria-current="page" href=" ">{{kategori.name}}</a>
+                    </li> {% endcomment %}
+                <li class="nav-item">
+                  <a aria-current="page" href=" {% url 'kategori' kategori.slug %} ">{{kategori.name}}</a>
+                </li>
+
+
+              {% endfor %}
+
+            </ul>
+          </div>
+          <div id="burger_menu_btn" class="buton_nav">
+            <a href="#"><i class="fa-solid fa-bars"></i></a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-- hamburger menu  -->
+  <div id="burger_container" class="container dsp-none">
+    <div class="burger_menu ms-auto me-4  mt-4 p-4 ">
+      <h2 class="display-4 text-center  "> EVRİM IŞIGI</h2>
+      <div class="burger_menu_item mb-4">
+        <ul class="navbar-nav w-50 ">
+          <li class="nav-item mt-3 ">
+            <i class="fa-solid fa-chevron-right"></i>
+            <a class="mx-2" href="#">Ana Sayfa</a>
+          </li>
+          <li class="nav-item mt-3 ">
+            <i class="fa-solid fa-chevron-right"></i>
+            <a class="mx-2" href="#">Evrim</a>
+          </li>
+          <li class="nav-item mt-3 ">
+            <i class="fa-solid fa-chevron-right"></i>
+            <a class="mx-2" href="#">Bilim</a>
+          </li>
+          <li class="nav-item mt-3 ">
+            <i class="fa-solid fa-chevron-right"></i>
+            <a class="mx-2" href="#">Biyoloji</a>
+          </li>
+          <li class="nav-item mt-3 ">
+            <i class="fa-solid fa-chevron-right"></i>
+            <a class="mx-2" href="#">Link</a>
+          </li>
+      </div>
+      <div class="w-100 d-flex align-items-center justify-content-center">
+        <div class=" burger_menu_btn  p-2 ">
+          <a href="#">Giris Yap</a>
+          <a href="#">Kayıt Ol</a>
+          <a href="#">Bağış Yap</a>
+        </div>
+      </div>
+      </ul>
+    </div>
+  </div>
+</div>
