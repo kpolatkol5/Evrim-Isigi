@@ -11,6 +11,7 @@
         <div class="manset_content mb-5">
             <a class="display-6"  href="{% url 'detay' manset.slug %}" >
                     {{manset.title|title}}
+                    
             </a>
             <div class="manset_info mt-3">
                 <div class="manset_info_kategori">
@@ -21,10 +22,10 @@
                     <span>1.15 dk</span>
                 </div>
             </div>
-            <div class="manset-text my-3 ">
-                <p>
+            <div class="manset_text_container my-3 ">
+                <div class="manset_text">
                     {{manset.description|safe}}    
-                </p>
+                </div>
             </div>
         </div>
     </div>

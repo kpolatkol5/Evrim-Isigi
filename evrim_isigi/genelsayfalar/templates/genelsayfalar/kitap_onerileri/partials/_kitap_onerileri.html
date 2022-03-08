@@ -1,0 +1,33 @@
+{% load static %}
+
+{% comment %} YOUTUBE KISMINDAN ALINMIŞTIR {% endcomment %}
+
+
+<div class="container-fluid my-5">
+    <div class="col-10 mx-auto">
+        <div class="youtube_header ">
+            <i class="fa-brands fa-youtube"></i>
+            <h1 class="w-75 ">KİTAP ÖNERİLERİ</h1>
+        </div>
+        <div class="youtube_container my-4 owl-carousel owl-theme">
+
+            {% for kitap_onerileri in kitap_onerileri %}
+                <div class="item youtube_content_container">
+                    <div class="youtube_img_container mb-3">
+                        <img class="img-fluid" src="{{kitap_onerileri.image.url}}" alt="">
+                    </div>
+                    <div class="kitap_onerileri_link mb-3">
+                        <a href=" {% url 'kitap-onerileri' kitap_onerileri.slug  %} ">{{kitap_onerileri.title}}</a>
+                    </div>
+                    <div class="kitap_aciklama">
+            
+                        {{kitap_onerileri.description.safe}}
+
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>

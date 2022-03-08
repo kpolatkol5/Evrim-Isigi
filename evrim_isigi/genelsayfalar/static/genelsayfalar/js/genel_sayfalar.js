@@ -1,1 +1,18 @@
-console.log("genelsayfalare");
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1050:{
+            items:3
+        },
+        1500:{
+            items:4
+        }
+    }
+}) 

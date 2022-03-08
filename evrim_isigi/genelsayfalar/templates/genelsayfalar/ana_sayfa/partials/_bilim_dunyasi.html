@@ -1,5 +1,7 @@
+{% load static %}
+
 <div class="row">
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-12 bilim_header_container">
             <i class="fa-solid fa-microscope"></i>
             <div class="bilim_header">
@@ -8,14 +10,72 @@
         </div>
     </div>
 
-    <div class="col-md-6 col-12 d-flex align-items-center justify-content-center border">
-        <div class="col-11 border">
-            asdas
-        </div>
-    </div>
-    <div class="col-md-6 col-12 d-flex align-items-center justify-content-center border">
-        <div class="col-11 border">
-            asdas
-        </div>
-    </div>
+
+
+
+
+    {% for bilim_dunyasi in bilim_dunyasi %}
+        {% comment %} ------------------------------------------------------------------- {% endcomment %}
+
+            <div class="col-md-6 col-12  my-3 d-flex align-items-center justify-content-center">
+                <div class="col-11 bilim_dunyası_container p-4">
+                    <div class=" bilim_dunyasi_info mb-3 ">
+                        <div class="bilim_dunyasi_info_kategori">
+                            <a class="" href="#">{{bilim_dunyasi.blogun_kategorisi.name}}</a>
+                        </div>
+                        <div class="bilim_dunyasi_info_date">
+                            <span>{{bilim_dunyasi.yayimlanma_tarihi}}</span>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class=" col-xxl-4 col-12">
+                            <div class="bilim_dunyasi_img_container">
+                                <img class="img-fluid" src="{{bilim_dunyasi.image.url}}" alt="">
+                            </div>
+                        </div>
+                        <div class=" col-xxl-8 col-12 bilim_dunyasi_content_container">
+                            <a href=" {% url 'detay' bilim_dunyasi.slug %} ">{{bilim_dunyasi.title|title}}</a>
+                            <div class="bilim_dunyasi_content">
+                                {{bilim_dunyasi.description|safe}}
+                            </div>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bilim_dunyasi_info row ">
+                        <div class=" blog_like_container d-flex justify-content-start pt-2">
+                            <div class="  blog_like  me-3">
+                                <a href="#">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </a>
+                                <span class="ms-2">32</span>
+                            </div>
+                            <div class="blog_dislike">
+                                <a href="#">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <span class="ms-2">32</span>
+                            </div>
+                        </div>
+                        <div class="okuma_zamanı col-12 mt-2">
+                            <span class="ms-2">Tahmini okuma süresi : <b>1.5dk</b> </span>
+                        </div>
+                        <div class="bilim_dunyasi_yazar_container  col-12 ">
+                            <span> {{bilim_dunyasi.blogun_yazari.yazar_adi}} </span>
+                            <span class="text-muted ms-1"> {{bilim_dunyasi.blogun_yazari.yazar_pozisyonu}}</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        {% comment %} ------------------------------------------------------------------- {% endcomment %}
+    {% endfor %}
+
+
+
+
+
+
+
 </div>

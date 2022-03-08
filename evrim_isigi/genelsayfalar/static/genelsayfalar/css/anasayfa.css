@@ -10,9 +10,10 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    
+
 }
-.backround_img_filter{
+
+.backround_img_filter {
     background-color: black;
     z-index: 1;
     width: 100%;
@@ -31,13 +32,17 @@
 
 }
 
-.manset_content a{
+.manset_content a {
 
     color: white;
     font-weight: bold;
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .manset_info {
@@ -82,31 +87,24 @@
     font-size: 15px;
 }
 
-.manset-text {
+.manset_text_container {
     width: 70%;
+
+}
+
+.manset_text {
+    font-weight: bold;
+    color: white;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+
 }
 
-.manset-text p {
-    font-weight: bold;
-    color: white;
-   
-}
 
 /** ipad pro **/
-@media only screen and (max-width: 1400px) {
-
-    .manset-text p {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-}
+@media only screen and (max-width: 1400px) {}
 
 /** col xl **/
 
@@ -121,24 +119,13 @@
         height: 600px;
     }
 
-    .manset-text p {
+    .manset_content a {
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
-
-    }
-
-    .manset_content h1 {
-
         font-size: 25px;
     }
-
-    .manset-text {
-        width: 100%;
-    }
-
-
 
 }
 
@@ -254,11 +241,12 @@
 
 .blog-header a {
     text-decoration: none;
-    color: black; 
+    color: black;
     font-size: 30px;
     font-weight: bold;
 }
-.blog_header_baslik{
+
+.blog_header_baslik {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -330,7 +318,7 @@
     vertical-align: middle;
     width: 50px;
     height: 50px;
-    border-radius:50%;
+    border-radius: 50%;
     overflow: hidden;
 
 }
@@ -350,9 +338,16 @@
 
 /** ipad pro **/
 @media only screen and (max-width: 1400px) {
-    .blog-header h1 {
+    .blog-header a {
 
         font-size: 25px;
+    }
+
+    .blog_header_baslik {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .blog_img-container img {
@@ -379,7 +374,7 @@
 
 /** ipad  **/
 @media only screen and (max-width: 769px) {
-    .blog-header h1 {
+    .blog-header a {
 
         font-size: 20px;
     }
@@ -444,6 +439,13 @@
         display: flex;
         flex-direction: column;
 
+    }
+
+    .blog_header_baslik {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .blog_img-container img {
@@ -609,18 +611,21 @@
     border: thin solid black;
 }
 
+
 .navigation_image_container {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: 80px;
 
 }
 
 .navigation_image_container img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
 
 }
+
 
 .navigation_content_container {
     display: flex;
@@ -628,7 +633,7 @@
 }
 
 .navigation_content_container a {
- 
+
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -723,7 +728,7 @@
 /** ipad pro **/
 @media only screen and (max-width: 1200px) {
 
-    .navigation{
+    .navigation {
         display: none;
     }
 
@@ -760,14 +765,30 @@
     margin-right: 10px;
 }
 
-.youtube_content_container {
-    max-height: 590px;
-    max-width: 500px;
+.youtube_img_container {
 
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.youtube_img_container img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.youtube_content_container {
+    height: 480px;
+    max-width: 450px;
     padding: 15px;
     border: thin solid black;
     display: flex;
     flex-direction: column;
+    align-items: center;
+
 }
 
 
@@ -832,11 +853,41 @@
 /** col xl **/
 
 
-@media only screen and (max-width: 1200px) {}
+@media only screen and (max-width: 1200px) {
+    /* 
+    .youtube_img_container{
+
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+    }
+     */
+
+
+}
 
 
 /** ipad  **/
-@media only screen and (max-width: 769px) {}
+@media only screen and (max-width: 769px) {
+    .youtube_img_container {
+
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .info_container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .youtube_info_time {
+        border: none;
+        margin-top: 10px;
+    }
+}
+
 
 /** mobil  **/
 @media only screen and (max-width: 576px) {}
@@ -877,8 +928,302 @@
     padding-top: 5px;
 }
 
+.bilim_dunyası_container {
+    max-width: 640px;
+    border: thin solid black;
 
+}
+
+.bilim_dunyasi_info {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.bilim_dunyasi_info_kategori a {
+    font-size: 15px;
+    display: block;
+    width: 98%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 15px;
+    background-color: black;
+    text-align: center;
+    padding: 5px 30px;
+}
+
+.bilim_dunyasi_info_date{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+    border-left: 2px solid black;
+
+}
+
+
+
+.bilim_dunyasi_info_kategori {
+
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bilim_dunyasi_img_container {
+    width: 100%;
+    height: 200px;
+
+}
+
+.bilim_dunyasi_img_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+
+}
+
+.bilim_dunyasi_content_container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bilim_dunyasi_content {
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 20px;
+}
+
+.bilim_dunyasi_content_container a {
+    font-size: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    line-height: 30px;
+    margin-bottom: 10px;
+
+}
+
+
+.bilim_dunyasi_yazar_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+/** ipad pro **/
+@media only screen and (max-width: 1445px) {
+    .bilim_dunyasi_img_container {
+        width: 100%;
+    }
+
+    .bilim_dunyasi_yazar_container {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/** col xl **/
+
+
+@media only screen and (max-width: 1200px) {}
 
 
 
 /*  !bilim kategorisi bitti!  */
+
+
+@media only screen and (max-width: 925px) {
+
+    .bilim_dunyasi_info_date{
+       border: none; 
+       margin-top: 10px;
+    }
+
+
+}
+
+/** ipad  **/
+@media only screen and (max-width: 769px) {
+
+    .bilim_dunyasi_info_date{
+        border-left: 2px solid black;
+        margin: initial;
+     }
+
+    .bilim_dunyasi_yazar_container span:nth-child(1) {
+        font-size: 15px;
+    }
+
+    .bilim_dunyasi_yazar_container span:nth-child(2) {
+        font-size: 15px;
+    }
+}
+
+/** mobil  **/
+@media only screen and (max-width: 576px) {
+
+    .bilim_dunyasi_info_date{
+        border:none;
+
+        margin-top:10px;
+     }
+
+
+    .author_container {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .bilim_dunyasi_yazar_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bilim_dunyasi_yazar_container span:nth-child(2) {
+        font-size: 12px;
+    }
+
+    .bilim_dunyasi_yazar_container span:nth-child(1) {
+        font-size: 12px;
+    }
+}
+
+
+/** xs mobil  **/
+
+@media only screen and (max-width: 390px) {}
+
+
+/*  *biyoloji başladı* */
+
+.biyoloji_header_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid black;
+    width: 75%;
+}
+
+.biyoloji_header_container i {
+    margin-right: 10px;
+    font-size: 40px;
+    color: #007880;
+}
+
+.biyoloji_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.biyoloji_header h1 {
+    padding-top: 5px;
+}
+
+
+
+/* *kitap önerileri başladı* */
+
+.kitap_onerileri_link {
+    width: 100%;
+}
+
+.kitap_onerileri_link a {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+    color: black;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+
+.youtube_content_container {
+    height: 480px;
+    max-width: 450px;
+    padding: 15px;
+    border: thin solid black;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+/*   *GEnetik başladı*  */
+
+.genetik_card_container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.genetik_card_container img {
+    object-position: 50% 50%;
+}
+
+.genetk_image_container {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.genetik_card_container .card {
+    border: thin solid black;
+    width: 400px;
+    border-radius: 0px;
+
+}
+
+.genetik_card_container .card-title {
+    color: black;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+
+
+}
+
+.genetik_card_container .card-text {
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.genetik_yazar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* !genetik bitti! */

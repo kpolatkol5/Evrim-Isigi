@@ -1,29 +1,5 @@
 {% load static %}
 
-
-<div id="navbar_select" class="navigation  ">
-    <div class="row justify-content-center align-itemc-center">
-
-        <div class="navigation_search  mt-4">
-            <form class="d-flex align-itemc-center justify-content-center" action="#">
-                <div class="search_input  row   p-0">
-                    <div class="col-10 m-0">
-                        <input type="text" placeholder="ARA">
-                    </div>
-                    <div class="col-2 m-0">
-                        <button class="search_btn "><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </div>
-            </form>
-            <h2 class=" my-4 ">
-                DİĞER MAKALELER
-            </h2>
-            <div class="col-10 mb-2">
-                <hr>
-            </div>
-        </div>
-
-
         {% for nav_blogs in nav_blogs  %}
         <!-- -------------------------------------------------------------------------- -->
             <div class="col-11 mb-3 p-0 navigation_container  ">
@@ -34,7 +10,7 @@
                         </div>
                     </div>
                     <div class=" col-9 navigation_content_container ">
-                        <a href="{% url 'detay' nav_blogs.slug %}">
+                        <a  href=" {% url 'detay' nav_blogs.slug  %} ">
                             {{nav_blogs.title}}
                         </a>
                         <a></a>
@@ -50,6 +26,3 @@
             </div>
             <!-- -------------------------------------------------------------------------- -->
         {% endfor %}
-    </div>
-</div>
-

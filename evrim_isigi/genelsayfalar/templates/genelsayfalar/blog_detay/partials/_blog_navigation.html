@@ -28,13 +28,9 @@
         <!-- -------------------------------------------------------------------------- -->
             <div class="col-11 mb-3  navigation_container p-3 ">
                 <div class="row  d-flex align-items-center justify-content-center ">
-                    {% comment %} <div class=" col-3 navigation_container_none  ">
-                        <div class="navigation_image_container">
-                            <img src="{{nav_blogs.image.url}}" alt="">
-                        </div>
-                    </div> {% endcomment %}
+          
                     <div class=" col-11 navigation_content_container ">
-                        <a  href="">
+                        <a  href=" {% url 'detay' nav_blogs.slug %} ">
                             {{nav_blogs.title}}
                         </a>
                         <a></a>
