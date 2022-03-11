@@ -7,7 +7,7 @@
 <div class="row mb-4 blog_container p-1 w-100">
     <div class="col-sm-4 col-12">
         <div class="blog_img-container p-2 me-2">
-            <img class="img-fluid" src="{{genel_bloglar.image.url}}" alt="">
+            <img class="img-fluid" src="{{genel_bloglar.image.url}}" alt="{{genel_bloglar.image_seo}}">
         </div>
     </div>
     <div class=" col-sm-8 col-12  p-1">
@@ -52,7 +52,7 @@
                 </div>
                 <div class=" col-md-8 me-auto col-12 author_container  p-2 pe-4">
                     <div class="author_image_container mt-2">
-                        <img src=" {{genel_bloglar.blogun_yazari.yazar_resim.url}} " alt="">
+                        <img src=" {{genel_bloglar.blogun_yazari.yazar_resim.url}} " alt="{{yazar_resim.image_seo}}">
                     </div>
                     <div class="author_content-container mt-sm-3 ms-3">
                         <span> {{genel_bloglar.blogun_yazari.yazar_adi.get_full_name|title}}</span>

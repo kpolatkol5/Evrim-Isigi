@@ -1,14 +1,53 @@
-.kategori_detay_container{
-
+.kategori_detay_container {
     position: relative;
     top: 120px;
-    
 }
 
-
-.kategori_detay_header{
+.kategori_detay_header {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+.pagination a {
+    color: black;
+    border: none;
+    border: thin solid black;
+    margin-right: 10px;
+}
+
+.pagination a:hover {
+    background-color: transparent;
+    color: black;
+
+}
+
+.active_page {
+    color: white !important;
+    background-color: black;
+}
+
+.active_page:hover {
+    color: initial;
+    background-color: initial;
+    color: white !important;
+    background-color: black !important;
+}
+
+.Page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@media only screen and (max-width: 527px) {
+
+    .sakla {
+        display: none;
+        }
+
+
+} 
+

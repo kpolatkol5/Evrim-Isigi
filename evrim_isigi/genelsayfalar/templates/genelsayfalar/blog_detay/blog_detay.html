@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block meta_tag %}
+    <meta name="description" content="{{blog.meta_description}}">
+    <meta name="keywords" content="{{blog.meta_keywords}}">
+    <title>{{blog.meta_title}}</title>
+{% endblock meta_tag  %}
+
+
 {% block css_files %}
     <link rel="stylesheet" href=" {% static 'genelsayfalar/css/blog_detay.css' %} ">
     <link rel="stylesheet" href=" {% static 'genelsayfalar/css/anasayfa.css' %} ">

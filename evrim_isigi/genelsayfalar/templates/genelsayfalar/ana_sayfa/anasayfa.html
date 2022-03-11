@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta_tag %}
+    <meta name="description" content="{{ana_sayfa_seo.meta_description}}">
+    <meta name="keywords" content="{{ana_sayfa_seo.meta_keywords}}">
+    <title>{{ana_sayfa_seo.meta_title}}</title>
+{% endblock meta_tag  %}
+
 {% block css_files %}
-
-<link rel="stylesheet" href=" {% static 'genelsayfalar/css/anasayfa.css' %} ">
-
+    <link rel="stylesheet" href=" {% static 'genelsayfalar/css/anasayfa.css' %} ">
 {% endblock css_files %}
 
 
 {% block content %}
-
-{% include 'genelsayfalar/ana_sayfa/partials/_manset.html' %}
+    {% include 'genelsayfalar/ana_sayfa/partials/_manset.html' %}
 
 <!--  *content Kısmı Başladı* -->
-
 
 <div class="container-fluid my-5">
     <div class="col-10 mx-auto">
@@ -22,6 +24,11 @@
                 {% for genel_bloglar in blogs  %}
                     {% include 'genelsayfalar/ana_sayfa/partials/_genel_bloglar.html' %}
                 {% endfor %}
+
+                {% for ayar in  site_ayar_logo %}
+                    {{ayar.logo_yazi}}
+                {% endfor %}
+
             </div>
             <div class="genel_navigation_none p-2 col-4 ">
                 {% include 'genelsayfalar/ana_sayfa/partials/_genel_navigation.html' %}
@@ -34,6 +41,7 @@
         
     </div>
 </div>
+
 {% include 'genelsayfalar/ana_sayfa/partials/_biyoloji.html' %}
 {% include 'genelsayfalar/kitap_onerileri/partials/_kitap_onerileri.html' %}
 

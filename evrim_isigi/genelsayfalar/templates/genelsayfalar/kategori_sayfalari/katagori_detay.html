@@ -2,58 +2,83 @@
 {% load static %}
 
 
+{% block meta_tag %}
+
+
+<meta name="description" content="{{SeoAyar_kategoriler.meta_description}}">
+<meta name="keywords" content="{{SeoAyar_kategoriler.meta_keywords}}">
+<title>{{SeoAyar_kategoriler.meta_title}}</title>
+
+{% endblock meta_tag %}
+
+
+
+
 {% block css_files %}
-{% comment %} 
-
-   +  fazla css yazmamak için ve tasarım aynı olduğu için  anasayfa.css i çağırdım 
-
-       position: relative;
-    top: 150px;
-
-
-
-{% endcomment %}
-
+{% comment %} fazla css yazmamak için ve tasarım aynı olduğu için anasayfa.css i çağırdım{% endcomment %}
 <link rel="stylesheet" href=" {% static 'genelsayfalar/css/anasayfa.css' %} ">
 <link rel="stylesheet" href=" {% static 'genelsayfalar/css/kategori_detay.css' %} ">
-
 {% endblock css_files %}
-
 
 {% block content %}
 
 
 <!--  *content Kısmı Başladı* -->
-
-
 <div class="kategori_detay_container container-fluid my-5">
     <div class="col-10 mx-auto">
         <div class="row justify-content-between">
             <div class="p-2 col-xl-8  ">
                 {% for bloglar in blog  %}
-                
-                    {% include "genelsayfalar/kategori_sayfalari/partials/_kategori_blog.html" %}
-                
+                {% include "genelsayfalar/kategori_sayfalari/partials/_kategori_blog.html" %}
                 {% endfor %}
+                <div class="row mt-3">
+                    <div class="col-12">
+                    <nav aria-label="Page navigation ">
+                        <ul class="pagination d-flex justify-content-center">
 
+                            {% comment %} ilk sayfa ikonu {% endcomment %}
+                            {% if blog.number != 1 %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page=1" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {% endif %}
+    
+                            {% comment %} önceki sayfa ikonu {% endcomment %}
+                            {% if blog.number != 1 %}
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ blog.previous_page_number }}">{{blog.previous_page_number}}</a></li>
+                            {% endif %}
+
+                            {% comment %}mevcut sayfa {% endcomment %}
+                            <li class="page-item "><a class="page-link active_page" href="?page={{ blog.number }}">{{ blog.number }}</a></li>
+
+                            {% comment %} sonraki sayfa ikonu {% endcomment %}
+                            {% if blog.paginator.num_pages != blog.number %}
+                            <li class="page-item"><a class="page-link" href="?page={{ blog.next_page_number }}">{{blog.next_page_number}}</a></li>
+                            {% endif %}
+
+                            {% comment %} son sayfa ikonu {% endcomment %}
+                            {% if blog.has_next == True %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ blog.paginator.num_pages }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                </div>
             </div>
-
             <div class="genel_navigation_none p-2 col-4 ">
                 {% include "genelsayfalar/kategori_sayfalari/partials/_kategori_navigation.html" %}
-
-            </div> 
-            
-            
-
+            </div>
         </div>
-       
     </div>
 </div>
-
-
-
 {% endblock content %}
-
 {% block js_files %}
 <script src=" {% static 'genelsayfalar/js/kategori_detay.js' %} "></script>
 {% endblock js_files %}

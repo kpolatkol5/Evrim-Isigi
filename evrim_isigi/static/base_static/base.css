@@ -182,6 +182,9 @@ footer{
     display: flex;
     align-items: center;
 }
+.logo img{
+    max-width: 50px;
+}
 .footer_kategoriler{
     border:  thin solid white;
     display: flex;
