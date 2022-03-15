@@ -30,7 +30,6 @@ def sozluk(request):
         "site_ayar":Site_gorunum.objects.get(is_active=True),
         "kategori":Catagories.objects.filter(is_active=True),
         "footer_kontrol":Footer_kontrol.objects.get(is_active=True)
-
     }
 
 
@@ -43,7 +42,7 @@ def blog_detay(request , slug):
         "blog":Blog.objects.get(slug=slug),
         "kategori":Catagories.objects.filter(is_active=True),
         "kategori_slug":Blog.objects.get(slug=slug),
-        "nav_blogs":Blog.objects.filter(is_active=True).order_by(-id),
+        "nav_blogs":Blog.objects.filter(is_active=True).order_by("-id"),
         "footer_kontrol":Footer_kontrol.objects.get(is_active=True)
     }
 
