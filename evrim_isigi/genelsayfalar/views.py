@@ -7,7 +7,7 @@ from django.core.paginator import Paginator , EmptyPage, PageNotAnInteger
 def ana_sayfa(request):
 
     context={
-        "kitap_onerileri":Kitap_onerileri.objects.filter(is_active=True).order_by("-id"),
+        "kitap_onerileri":Kitap_onerileri.objects.filter(is_active=True),
         "biyoloji":Catagories.objects.get(name="Biyoloji").blog_set.filter(is_active=True).order_by("-id")[:5],
         "blogs":Blog.objects.filter(is_active=True, is_home=True).order_by("-id")[:5],
         "bilim_dunyasi": Catagories.objects.get(name="Bilim").blog_set.filter(is_active=True).order_by("-id")[:4],
@@ -19,10 +19,9 @@ def ana_sayfa(request):
         "site_ayar":Site_gorunum.objects.get(is_active=True),
         "ana_sayfa_seo":Ana_sayfa_seo_ayar.objects.get(is_active=True),
         "footer_kontrol":Footer_kontrol.objects.get(is_active=True)
-
     }
-    return render(request , "genelsayfalar/ana_sayfa/anasayfa.html" ,context)
 
+    return render(request , "genelsayfalar/ana_sayfa/anasayfa.html" ,context)
 
 def sozluk(request):
 
