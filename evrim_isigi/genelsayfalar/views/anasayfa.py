@@ -14,27 +14,40 @@ from SiteAyar.models.footerKontrol import Footer_kontrol
 
 def ana_sayfa(request):
 
+    def kategori_blog(kategori):
+        result  =   []
 
+        for i in kategori:
+            makaleler = Catagories.objects.get(name =   i.name).blog.filter(is_active="True").order_by("-id")[:5]
+            result.append({"kategori_adi":i.kategori_baslik , "makaleler" : makaleler})
+
+
+        return result
+        
     kitap_onerileri     =   Kitap_onerileri.objects.filter(is_active=True)
-    biyoloji            =   Catagories.objects.get(name="Biyoloji").blog_set.filter(is_active=True).order_by("-id")[:5]
-    blogs               =   Blog.objects.filter(is_active=True, is_home=True).order_by("-id")[:5]
-    bilim_dunyasi       =   Catagories.objects.get(name="Bilim").blog_set.filter(is_active=True).order_by("-id")[:4]
-    genetik_blog        =   Catagories.objects.get(name="Genetik").blog_set.filter(is_active=True).order_by("-id")[:6]
     kategori            =   Catagories.objects.filter(is_active=True)
+    kategorideki_blog    =   kategori_blog(kategori)
+
+    blogs               =   Blog.objects.filter(is_active=True, is_home=True).order_by("-id")[:5]
+    # biyoloji            =   Catagories.objects.get(name="biyoloji").blog.filter(is_active=True).order_by("-id")[:5]
+    # bilim_dunyasi       =   Catagories.objects.get(name="Bilim").blog.filter(is_active=True).order_by("-id")[:4]
+    # genetik_blog        =   Catagories.objects.get(name="Genetik").blog.filter(is_active=True).order_by("-id")[:6]
     nav_blogs           =   Blog.objects.filter(is_active=True).order_by("-id")
-    manset              =   Blog.objects.get(manset=True)
     youtube             =   Youtube.objects.filter(is_active=True).order_by("-id")
     site_ayar           =   Site_gorunum.objects.get(is_active=True)
+    manset              =   Blog.objects.get(manset=True)
     ana_sayfa_seo       =   Ana_sayfa_seo_ayar.objects.get(is_active=True)
     footer_kontrol      =   Footer_kontrol.objects.get(is_active=True)
 
 
     context =   {
         "kitap_onerileri"   :   kitap_onerileri,
-        "biyoloji"          :   biyoloji,
         "blogs"             :   blogs,
-        "bilim_dunyasi"     :   bilim_dunyasi ,
-        "genetik_blog"      :   genetik_blog ,
+        # "biyoloji"          :   biyoloji,
+        # "bilim_dunyasi"     :   bilim_dunyasi ,
+        # "genetik_blog"      :   genetik_blog ,
+        "kategorideki_blog" :   kategorideki_blog,
+
         "kategori"          :   kategori,
         "nav_blogs"         :   nav_blogs,
         "manset"            :   manset ,

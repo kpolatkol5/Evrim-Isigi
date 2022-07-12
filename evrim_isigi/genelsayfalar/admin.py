@@ -5,26 +5,30 @@ from django.utils.safestring import mark_safe
 from .models import Blog,Catagories,Yazar,Youtube,Kitap_onerileri
 
 class Blog_Admin(admin.ModelAdmin):
-    list_display = ("title" , "is_active" , "is_home" , "selected_categories")
+    list_display = ("resim","title" , "is_active" , "is_home" , "secilen_kategoriler" )
     readonly_fields=("slug",)
+    
 
-
-    def selected_categories(self, obj):
+    def secilen_kategoriler(self, obj):
         html="<ul>"
 
         for category in obj.blogun_kategorisi.all():
             html += "<li> " +category.name + "</li> "
         
         html += "</ul>"
-    
+
         return mark_safe(html) 
 
+    def resim(self , obj):
+        if obj.image:
+            img =   f'<img src="{obj.image.url}" width="120px height="120px "></img>'
+            return mark_safe(img)
+        else:
+            return mark_safe("<p>Resim Yok</p>")
 
 class Katagori_Admin(admin.ModelAdmin):
     list_display = ("name", "slug")
     readonly_fields=("slug",)
-
-
 
 
 

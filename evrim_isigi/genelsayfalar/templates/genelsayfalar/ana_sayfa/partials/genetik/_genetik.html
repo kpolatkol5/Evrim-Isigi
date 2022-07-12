@@ -6,12 +6,12 @@
                 <div class="col-12 biyoloji_header_container">
                     <i class="fa-solid fa-frog"></i>
                     <div class="biyoloji_header">
-                        <h1>GENETİK</h1>
+                        <h1>{{kategorideki_blog.kategori_adi}}</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
-                {% for genetik in genetik_blog %}
+                {% for genetik in kategorideki_blog.makaleler %}
                 <div class=" col-lg-4 col-md-6 col-12 mb-4 genetik_card_container">
                     <div class="card ">
                         <div class="genetk_image_container">

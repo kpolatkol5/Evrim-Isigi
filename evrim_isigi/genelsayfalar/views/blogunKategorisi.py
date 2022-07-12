@@ -10,7 +10,7 @@ def blogun_kategorisi(request , slug):
 
     #pagination_basladi
 
-    kategori_bloglari   =   Catagories.objects.get(slug=slug).blog_set.filter(is_active=True).order_by("-id")
+    kategori_bloglari   =   Catagories.objects.get(slug=slug).blog.filter(is_active=True).order_by("-id")
     paginator           =   Paginator(kategori_bloglari,15) 
     page                =   request.GET.get('page')
 

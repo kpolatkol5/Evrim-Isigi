@@ -1,21 +1,18 @@
 {% load static %}
+<div class="container-fluid my-5">
+    <div class="col-10 mx-auto">
 
-<div class="row">
-    <div class="row mb-5">
-        <div class="col-12 bilim_header_container">
-            <i class="fa-solid fa-microscope"></i>
-            <div class="bilim_header">
-                <h1>BİLİM DÜNYASI</h1>
+        <div class="row">
+            <div class="row mb-5">
+                <div class="col-12 bilim_header_container">
+                    <i class="fa-solid fa-microscope"></i>
+                    <div class="bilim_header">
+                        <h1>{{kategorideki_blog.kategori_adi}}</h1>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-
-
-
-
-    {% for bilim_dunyasi in bilim_dunyasi %}
-        {% comment %} ------------------------------------------------------------------- {% endcomment %}
+            {% for bilim_dunyasi in kategorideki_blog.makaleler %}
+            {% comment %} ------------------------------------------------------------------- {% endcomment %}
 
             <div class="col-md-6 col-12  my-3 d-flex align-items-center justify-content-center">
                 <div class="col-11 bilim_dunyası_container p-4">
@@ -30,7 +27,8 @@
                     <div class="row ">
                         <div class=" col-xxl-4 col-12">
                             <div class="bilim_dunyasi_img_container">
-                                <img class="img-fluid" src="{{bilim_dunyasi.image.url}}" alt="{{bilim_dunyasi.image_seo}}">
+                                <img class="img-fluid" src="{{bilim_dunyasi.image.url}}"
+                                    alt="{{bilim_dunyasi.image_seo}}">
                             </div>
                         </div>
                         <div class=" col-xxl-8 col-12 bilim_dunyasi_content_container">
@@ -38,8 +36,6 @@
                             <div class="bilim_dunyasi_content">
                                 {{bilim_dunyasi.description|safe}}
                             </div>
-                            <p>
-                            </p>
                         </div>
                     </div>
                     <div class="bilim_dunyasi_info row ">
@@ -64,18 +60,12 @@
                             <span> {{bilim_dunyasi.blogun_yazari.yazar_adi}} </span>
                             <span class="text-muted ms-1"> {{bilim_dunyasi.blogun_yazari.yazar_pozisyonu}}</span>
                         </div>
-
                     </div>
 
                 </div>
             </div>
-        {% comment %} ------------------------------------------------------------------- {% endcomment %}
-    {% endfor %}
-
-
-
-
-
-
-
+            {% comment %} ------------------------------------------------------------------- {% endcomment %}
+            {% endfor %}
+        </div>
+    </div>
 </div>

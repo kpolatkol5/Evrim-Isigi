@@ -17,6 +17,7 @@
 
                         <div class="menu_items w-75">
                             <ul id="navbar_item" class="navbar-nav nav_menu mb-2 mb-lg-0">
+                                {% if kategori %}
 
                                 {% for kategori in kategori  %}
                                 <li class="nav-item">
@@ -24,6 +25,9 @@
                                         href=" {% url 'kategori' kategori.slug %} ">{{kategori.name}}</a>
                                 </li>
                                 {% endfor %}
+                                <span>kategori yok</span>
+                                {% endif %}
+
                             </ul>
                         </div>
                         <div id="burger_menu_btn" class="buton_nav">

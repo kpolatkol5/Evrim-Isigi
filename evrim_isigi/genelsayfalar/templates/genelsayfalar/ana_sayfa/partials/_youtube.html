@@ -1,30 +1,41 @@
 {% load static %}
+<div class="container-fluid my-5">
+    <div class="col-10 mx-auto">
 
-<div class="youtube_header ">
-    <i class="fa-brands fa-youtube"></i>
-    <h1 class="w-75 ">YOUTUBE</h1>
-</div>
-
-
-<div class="youtube_container my-4 owl-carousel owl-theme">
-    {% for youtube in youtube  %}
-
-
-        <div class="item youtube_content_container">
-            <div class="youtube_img_container mb-3">
-                <img class="img-fluid" src="{{youtube.image.url}}" alt="{{youtube.image_seo}}">
+        <div class="row flex-column my-5">
+            <div class="youtube_header ">
+                <i class="fa-brands fa-youtube"></i>
+                <h1 class="w-75 ">YOUTUBE</h1>
             </div>
-            <div class="youtube_info  mb-3">
-                <div class=" info_container w-75">
-                    <a href="  ">{{youtube.kategori.name}}</a>
-                    <div class="youtube_info_time">
-                        <span>{{youtube.date}}</span>
+
+
+            <div class="youtube_container my-4 owl-carousel owl-theme">
+                {% if youtube %}
+
+                {% for youtube in youtube  %}
+                <div class="item youtube_content_container">
+                    <div class="youtube_img_container mb-3">
+                        <img class="img-fluid" src="{{youtube.image.url}}" alt="{{youtube.image_seo}}">
+                    </div>
+                    <div class="youtube_info  mb-3">
+                        <div class=" info_container w-75">
+                            <a href="  ">{{youtube.kategori.name}}</a>
+                            <div class="youtube_info_time">
+                                <span>{{youtube.date}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="youtube_link mb-3">
+                        <a href="{{youtube.url}}">{{youtube.title}}</a>
                     </div>
                 </div>
-            </div>
-            <div class="youtube_link mb-3">
-                <a href="{{youtube.url}}">{{youtube.title}}</a>
+                {% endfor %}
+                {% else %}
+                <span>youtube ekleyiniz</span>
+
+                {% endif %}
+
             </div>
         </div>
-    {% endfor %}
+    </div>
 </div>
