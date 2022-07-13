@@ -3,7 +3,6 @@
 
 <div id="navbar_select" class="navigation px-3 ">
     <div class="row justify-content-center align-itemc-center">
-
         <div class="navigation_search  mt-4">
             <form class="d-flex align-itemc-center justify-content-center" action="#">
                 <div class="search_input  row   p-0">
@@ -15,37 +14,23 @@
                     </div>
                 </div>
             </form>
-            <h2 class=" my-4 ">
-                DİĞER MAKALELER
-            </h2>
-            <div class="col-10 mb-2">
-                <hr>
+            <h2 class=" my-4 "> DİĞER MAKALELER  </h2>
+            <div class="col-10 mb-2"> <hr> </div>
+        </div>
+        {% for nav_blogs in nav_blogs  %}
+        <div class="nav_blog p-3 mb-3">
+            <div class="nav_blog_img">
+                <img src="{{nav_blogs.image.url}}" alt="">
+            </div>
+            <div class="nav_blog_content ms-3">
+                <div class="nav_blog_content_title">
+                    <a class="" href="{% url 'detay' nav_blogs.slug %}">
+                        {{ nav_blogs.title|truncatewords:8 }}
+                    </a>
+                </div>
+                <span class="text-muted my-2">Tahmini Okuma Süresi : <strong>1.2 dk</strong></span>
             </div>
         </div>
-
-
-        {% for nav_blogs in nav_blogs  %}
-        <!-- -------------------------------------------------------------------------- -->
-            <div class="col-11 mb-3  navigation_container p-3 ">
-                <div class="row  d-flex align-items-center justify-content-center ">
-          
-                    <div class=" col-11 navigation_content_container ">
-                        <a  href=" {% url 'detay' nav_blogs.slug %} ">
-                            {{nav_blogs.title}}
-                        </a>
-                        <a></a>
-                        <span class=text-muted>Tahmini okuma süresi : <b>1.12dk</b> </span>
-                        <div class="navigation_content_kategori_info ">
-                            <div>
-                                <a href="#">Bilim</a>
-                            </div>
-                            <span class="ms-2 ps-2">{{nav_blogs.yayimlanma_tarihi}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- -------------------------------------------------------------------------- -->
         {% endfor %}
     </div>
 </div>
-

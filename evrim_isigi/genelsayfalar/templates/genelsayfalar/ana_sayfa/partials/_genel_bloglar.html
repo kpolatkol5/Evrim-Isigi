@@ -5,9 +5,7 @@
      <div class="col-10 mx-auto">
          <div class="row justify-content-between">
              <div class="p-2 col-xl-8  ">
-                
                  {% for genel_bloglar in blogs  %}
-
                  <div class="row mb-4 blog_container p-1 w-100">
                      <div class="col-sm-4 col-12">
                          <div class="blog_img-container p-2 me-2">
@@ -18,7 +16,7 @@
                          <div class="blog-content-container">
                              <div class="blog_info">
                                  <div class="blog_info_kategori">
-                                     <a class="" href="#">bilim</a>
+                                     <a href="{% url 'kategori' genel_bloglar.blogun_kategorisi.slug %}">{{genel_bloglar.blogun_kategorisi}}</a>
                                  </div>
                                  <div>
                                      <span>{{genel_bloglar.yayimlanma_tarihi}}</span>
@@ -36,51 +34,65 @@
                                  </span>
                              </div>
                              <div class="okuma_zamanı mt-2">
-                                 <span class="ms-2">Tahmini okuma süresi : <b>1.5dk</b> </span>
-                             </div>
-                             <div
-                                 class="row d-flex justify-content-md-start align-items-center justify-content-around ">
-                                 <div class=" col-md-4 col-12  ">
-                                     <div class=" blog_like_container  pt-2">
-                                         <div class="  blog_like  me-3">
-                                             <a href="#">
-                                                 <i class="fa-solid fa-angle-up"></i>
-                                             </a>
-                                             <span class="ms-2">32</span>
-                                         </div>
-                                         <div class="blog_dislike">
-                                             <a href="#">
-                                                 <i class="fa-solid fa-angle-down"></i>
-                                             </a>
-                                             <span class="ms-2">32</span>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class=" col-md-8 me-auto col-12 author_container  p-2 pe-4">
-                                     <div class="author_image_container mt-2">
-                                         <img src=" {{genel_bloglar.blogun_yazari.yazar_resim.url}} "
-                                             alt="{{yazar_resim.image_seo}}">
-                                     </div>
-                                     <div class="author_content-container mt-sm-3 ms-3">
-                                         <span> {{genel_bloglar.blogun_yazari.yazar_adi.get_full_name|title}}</span>
-                                         <span class="text-muted ms-1">
-                                             {{genel_bloglar.blogun_yazari.yazar_pozisyonu|upper}}</span>
-                                     </div>
-
-                                 </div>
+                                 <span class="ms-2 text-muted">Tahmini okuma süresi : <b>1.5dk</b> </span>
                              </div>
 
+                             <span class="makale_begeni ms-2 mt-2">Makalenin Beğeni Sayısı
+                                 :<b>{{genel_bloglar.begeni}}</b> </span>
+
+                             <div class=" author_container  p-2 pe-4">
+                                 <div class="author_content_container mt-sm-3 ms-3">
+                                     <span> {{genel_bloglar.blogun_yazari.yazar_adi.get_full_name|title}}</span>
+                                     <span class="text-muted ms-1">
+                                         {{genel_bloglar.blogun_yazari.yazar_pozisyonu|upper}}</span>
+                                 </div>
+                             </div>
                          </div>
                      </div>
                  </div>
                  {% endfor %}
              </div>
-
              <div class="genel_navigation_none p-2 col-4 ">
-                 {% include 'genelsayfalar/ana_sayfa/partials/_genel_navigation.html' %}
+                 <div id="navbar_select" class="navigation  ">
+                     <div class=" ">
+                         <div class="navigation_search  mt-4">
+                             <form class="d-flex align-itemc-center justify-content-center" action="#">
+                                 <div class="search_input  row   p-0">
+                                     <div class="col-10 m-0">
+                                         <input type="text" placeholder="ARA">
+                                     </div>
+                                     <div class="col-2 m-0">
+                                         <button class="search_btn ">
+                                             <i class="fa-solid fa-magnifying-glass"></i>
+                                         </button>
+                                     </div>
+                                 </div>
+                             </form>
+                             <h2 class=" my-4 ">
+                                 DİĞER MAKALELER
+                             </h2>
+                             <div class="col-10 mb-2">
+                                 <hr>
+                             </div>
+                         </div>
+                         {% for nav_blogs in nav_blogs  %}
+                         <div class="nav_blog p-3 mb-3">
+                             <div class="nav_blog_img">
+                                 <img src="{{nav_blogs.image.url}}" alt="">
+                             </div>
+                             <div class="nav_blog_content ms-3">
+                                 <div class="nav_blog_content_title">
+                                     <a class="" href="{% url 'detay' nav_blogs.slug %}">
+                                         {{ nav_blogs.title|truncatewords:8 }}
+                                     </a>
+                                 </div>
+                                 <span class="text-muted my-2">Tahmini Okuma Süresi : <strong>1.2 dk</strong></span>
+                             </div>
+                         </div>
+                         {% endfor %}
+                     </div>
+                 </div>
              </div>
          </div>
      </div>
  </div>
-
- <!-- --------------------------------------------------------------------------------- -->

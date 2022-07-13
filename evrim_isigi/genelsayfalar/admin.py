@@ -5,14 +5,14 @@ from django.utils.safestring import mark_safe
 from .models import Blog,Catagories,Yazar,Youtube,Kitap_onerileri
 
 class Blog_Admin(admin.ModelAdmin):
-    list_display = ("resim","title" , "is_active" , "is_home" , "secilen_kategoriler" )
+    list_display = ("resim","title" , "is_active" ,"blogun_kategorisi", "secilen_etiketler" )
     readonly_fields=("slug",)
     
 
-    def secilen_kategoriler(self, obj):
+    def secilen_etiketler(self, obj):
         html="<ul>"
 
-        for category in obj.blogun_kategorisi.all():
+        for category in obj.ana_sayfa_etiket.all():
             html += "<li> " +category.name + "</li> "
         
         html += "</ul>"

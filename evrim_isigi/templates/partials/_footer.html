@@ -14,31 +14,30 @@
                         {% for kategori in kategori  %}
                         <li class="nav-item">
                             <i class="fa-solid fa-arrow-right-long"></i>
-                            <a  target="_blank" href=" {% url 'kategori' kategori.slug %} ">{{kategori.name}}</a>
+                            <a target="_blank" href=" {% url 'kategori' kategori.slug %} ">{{kategori.name}}</a>
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
-
                 <div class="footer_social_container mt-4">
                     <div class="footer_social ">
-                        <a  target="_blank" href="{{footer_kontrol.facebook}}">
+                        <a target="_blank" href="{{footer_kontrol.facebook}}">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                     </div>
                     <div class="footer_social ">
-                        <a  target="_blank" href="{{footer_kontrol.twitter}}">
+                        <a target="_blank" href="{{footer_kontrol.twitter}}">
                             <i class="fa-brands fa-twitter"></i>
                         </a>
                     </div>
 
                     <div class="footer_social ">
-                        <a  target="_blank" href="{{footer_kontrol.instagram}}">
+                        <a target="_blank" href="{{footer_kontrol.instagram}}">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </div>
                     <div class="footer_social">
-                        <a  target="_blank" href="{{footer_kontrol.youtube}}">
+                        <a target="_blank" href="{{footer_kontrol.youtube}}">
                             <i class="fa-brands fa-youtube"></i>
                         </a>
                     </div>
@@ -62,18 +61,14 @@
                 <div class="mt-4">
                     {{footer_kontrol.footer_text|safe}}
                 </div>
-                <a  target="_blank" href="{{footer_control.footer_link}}">
+                <a target="_blank" href="{{footer_control.footer_link}}">
                     {{footer_kontrol.footer_link_text}}
                 </a>
 
             </div>
-
         </div>
-
-  
         <div class="footer_size_description">
             <span>{{footer_kontrol.alt_bilgi}}</span>
         </div>
-    
     </div>
 </footer>

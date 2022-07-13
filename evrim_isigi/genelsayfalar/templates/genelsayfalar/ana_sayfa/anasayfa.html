@@ -21,14 +21,10 @@
     {% include 'genelsayfalar/ana_sayfa/partials/_youtube.html' %}
 
     {% for kategorideki_blog in kategorideki_blog %}
-        {% include 'genelsayfalar/ana_sayfa/partials/_biyoloji.html' %}
+        {% include 'genelsayfalar/ana_sayfa/partials/_etiket_bloglari.html' %}
     {% endfor %}
 
     {% include 'genelsayfalar/kitap_onerileri/partials/_kitap_onerileri.html' %}
-        
-        {% comment %}     
-        {% include 'genelsayfalar/ana_sayfa/partials/_bilim_dunyasi.html' %}
-        {% include 'genelsayfalar/ana_sayfa/partials/genetik/_genetik.html' %} {% endcomment %}
 {% endblock content %}
 
 

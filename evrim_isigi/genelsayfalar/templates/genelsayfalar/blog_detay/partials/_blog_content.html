@@ -8,8 +8,8 @@
 </div>
 <div class="blog_detay_info_container d-flex flex-wrap">
     <div class="blog_info_katageori me-3">
-        <a href="">
-            {{blog.blogun_kategorisi.name}}
+        <a href="{% url 'kategori' blog.blogun_kategorisi.slug %}">
+            {{blog.blogun_kategorisi}}
         </a>
     </div>
     <div class="d-flex flex-row blog_detay_bilgi_mobil ">

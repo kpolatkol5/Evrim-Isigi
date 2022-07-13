@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <div id="navbar_select" class="navigation  ">
     <div class="row justify-content-center align-itemc-center">
 
@@ -23,30 +22,19 @@
             </div>
         </div>
         {% for nav_blogs in nav_blogs  %}
-        <!-- -------------------------------------------------------------------------- -->
-            <div class="col-11 mb-3 p-0 navigation_container  ">
-                <div class="row py-1 px-2 d-flex align-items-center justify-content-center p-0">
-                    <div class=" col-3 navigation_container_none  ">
-                        <div class="navigation_image_container">
-                            <img src="{{nav_blogs.image.url}}" alt="">
-                        </div>
-                    </div>
-                    <div class=" col-9 navigation_content_container ">
-                        <a  href="{% url 'detay' nav_blogs.slug %}">
-                            {{nav_blogs.title}}
-                        </a>
-                        <a></a>
-                        <span class=text-muted>Tahmini okuma süresi : <b>1.12dk</b> </span>
-                        <div class="navigation_content_kategori_info ">
-                            <div>
-                                <a href="#">Bilim</a>
-                            </div>
-                            <span class="ms-2 ps-2">{{nav_blogs.yayimlanma_tarihi}}</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="nav_blog p-3 mb-3">
+            <div class="nav_blog_img">
+                <img src="{{nav_blogs.image.url}}" alt="">
             </div>
-            <!-- -------------------------------------------------------------------------- -->
+            <div class="nav_blog_content ms-3">
+                <div class="nav_blog_content_title">
+                    <a class="" href="{% url 'detay' nav_blogs.slug %}">
+                        {{ nav_blogs.title|truncatewords:8 }}
+                    </a>
+                </div>
+                <span class="text-muted my-2">Tahmini Okuma Süresi : <strong>1.2 dk</strong></span>
+            </div>
+        </div>
         {% endfor %}
     </div>
 </div>

@@ -14,8 +14,12 @@ class Blog(models.Model):
     is_active           =   models.BooleanField(default=False , verbose_name="Aktif Blog")
     is_home             =   models.BooleanField(default=False, verbose_name="Ana Sayfada Göster")
     manset              =   models.BooleanField(default=False ,verbose_name="Manşet Alanında  Göster",  help_text="ÖNCE AKTİF OLAN MANSET BLOGUNU İNAKTİF HALE GETİRİN")
-    blogun_kategorisi   =   models.ManyToManyField(Catagories ,verbose_name="Kategoriler" , related_name="blog")
+    ana_sayfa_etiket    =   models.ManyToManyField(Catagories ,verbose_name="Ana Sayfa Etiket" ,blank=True, related_name="etiketBlog")
+    blogun_kategorisi   =   models.ForeignKey(Catagories ,verbose_name="Kategoriler",default=1,on_delete=models.CASCADE, related_name="blog")
     yayimlanma_tarihi   =   models.DateTimeField()
+    yayimlanma_tarihi   =   models.DateTimeField()
+    begeni              =   models.PositiveIntegerField(default=0)
+    
     meta_description    =   models.CharField(max_length=160 ,default=False ,help_text="max 160 karekter uzunluğunda olmalıdır", verbose_name="Meta Description")
     meta_keywords       =   models.CharField(max_length=100 ,default=False, db_index=True ,help_text="aralarına virgül konulacak şekilde max 5 anahtar kelime giriniz", verbose_name="Anahtar Kelimeler")
     meta_title          =   models.CharField(max_length=150,default=False, db_index=True ,
